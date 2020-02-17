@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+
+html {
+  font-family: 'VT323', monospace;
+  cursor: none;
+
+}
+
+body {
+  background-color: #2f3d39;
+  color: #f0fcff;
+  text-shadow: 0 0 20px , 0 0 40px, 0 0 80px , 0 0 100px;
+}
+
+.crt::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+@keyframes flicker {
+  0% {
+  opacity: 0.27861;
+  }
+  5% {
+  opacity: 0.34769;
+  }
+  10% {
+  opacity: 0.23604;
+  }
+  15% {
+  opacity: 0.90626;
+  }
+  20% {
+  opacity: 0.18128;
+  }
+  25% {
+  opacity: 0.83891;
+  }
+  30% {
+  opacity: 0.65583;
+  }
+  35% {
+  opacity: 0.67807;
+  }
+  40% {
+  opacity: 0.26559;
+  }
+  45% {
+  opacity: 0.84693;
+  }
+  50% {
+  opacity: 0.96019;
+  }
+  55% {
+  opacity: 0.08594;
+  }
+  60% {
+  opacity: 0.20313;
+  }
+  65% {
+  opacity: 0.71988;
+  }
+  70% {
+  opacity: 0.53455;
+  }
+  75% {
+  opacity: 0.37288;
+  }
+  80% {
+  opacity: 0.71428;
+  }
+  85% {
+  opacity: 0.70419;
+  }
+  90% {
+  opacity: 0.7003;
+  }
+  95% {
+  opacity: 0.36108;
+  }
+  100% {
+  opacity: 0.24387;
+  }
+}
+
+.crt::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+.crt {
+  overflow: hidden;
+}
+
+#illustration {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+
+.text-info {
+  text-align: center;
+  padding-top: 40vh;
+  pointer-events: none;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+}
+
+#prompt {
+  width: 25vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#options {
+  text-align: center;
+}
+
+.action {
+    font-family: font-family: 'VT323', monospace!important;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: transparent;
+    border: 0;
+    text-align: center;
+    width: 100px;
+    color: #f0fcff;
+    z-index: 1;
+}
+
+*:focus {
+    outline: none;
+}
