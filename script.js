@@ -35,7 +35,7 @@ function displayCmd(e) {
     }
 
     if(laika.health < 1){
-      
+
     }
   }
 }
@@ -48,16 +48,16 @@ function testVital () {
 }
 
 function starField (){
-   let scriptOne = document.createElement('script');
-   scriptOne.src = 'scripts/sketch.js';
-   var head = document.getElementsByTagName("head")[0];
-   head.appendChild(scriptOne);
+  let scriptOne = document.createElement('script');
+  scriptOne.src = 'scripts/sketch.js';
+  var head = document.getElementsByTagName("head")[0];
+  head.appendChild(scriptOne);
 
-   let scriptTwo = document.createElement('script');
-   scriptTwo.src = 'scripts/star.js';
-    head.appendChild(scriptTwo);
+  let scriptTwo = document.createElement('script');
+  scriptTwo.src = 'scripts/star.js';
+  head.appendChild(scriptTwo);
 
-    console.log(head);
+  console.log(head);
 }
 
 function meta (e) {
@@ -83,10 +83,10 @@ const options = [
     options: '[investigate]'
   },
   {
-  cmd: 'walk',
-  promptMsg: 'You trot down the quiet allyway, you yelp in surprise as the hands grab you as you round the corner. A man in a Soviet canine recruiters uniform roughly throws your struggling body into the cold rear compartment of the military truck. The truck groans forward into the cold night, shocked and afraid you eventually drift to sleep.',
-  options: '[wake]'
-},
+    cmd: 'walk',
+    promptMsg: 'You trot down the quiet allyway, you yelp in surprise as the hands grab you as you round the corner. A man in a Soviet canine recruiters uniform roughly throws your struggling body into the cold rear compartment of the military truck. The truck groans forward into the cold night, shocked and afraid you eventually drift to sleep.',
+    options: '[wake]'
+  },
   {
     cmd: 'rummage',
     promptMsg: 'You trot slowly to the garbage cans and begin to rummage. The garbage smells rich and heavenly. You barley notice the rustling behind you. There is a man in a Soviet canine recruiters uniform ready to pounce!',
@@ -203,7 +203,7 @@ const options = [
   },
   {
     cmd: 'float',
-    promptMsg: 'You think back on the few warm memories you have grown to cherish. Watching the world grow smaller in the distance.',
+    promptMsg: 'You think back on the few warm memories you have grown to cherish. Watching the world grow smaller in the distance. You feel weaker <span class="red">-12 health</span>',
     options: '[float]',
     meta: (laika) => laika.health = laika.health - 12
   },
