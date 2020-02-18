@@ -7,7 +7,6 @@ function perform(e){
 }
 
 function evaluate (cmdVal) {
-
   e = options.filter(optn => optn.cmd === cmdVal);
   console.log(e[0]);
   displayCmd(e);
@@ -15,18 +14,16 @@ function evaluate (cmdVal) {
 }
 
 function displayCmd(e) {
+  testVital();
   let prompt = document.getElementById('prompt');
   let options = document.getElementById('options');
   let illustration = document.getElementById('illustration');
-  let vitals = document.getElementById('vitals');
   illustration.innerHTML = '';
 
   if(e.length === 0){
     options.innerHTML = 'this is not an option at this time';
   }
-  if (e[0].cmd === 'stats') {
-    vitals.innerHTML = prompt.innerHTML = e[0].options;
-  } else {
+  else {
     prompt.innerHTML = e[0].promptMsg;
     options.innerHTML = e[0].options;
     if(e[0].meta){
@@ -39,7 +36,14 @@ function displayCmd(e) {
   }
 }
 
-function meta (e){
+function testVital () {
+  if (laika.inventory.length >= 1) {
+    let vitals = document.getElementById('vitals');
+    vitals.innerHTML = `Name: <span class="red">${laika.name}</span> / Experience: <span class="red">${laika.experience}</span> / Health: <span class="red">${laika.health}</span>`
+  }
+}
+
+function meta (e) {
   e.meta(laika);
 }
 
@@ -114,7 +118,7 @@ const options = [
   },
   {
     cmd:'experience',
-    promptMsg:'A masked scientistt arrives to your cell, carrying a siringe. You wake up feeling groggy, there are stitches in your side. You have been implanted with an <span class="red">embeded medical monitor</span>. You can see your vitals by typing [stats]. Your training has paid off, "the time has come, all is prepared for tomorrow." you hear them say. One of the scientists motions to you. "Good dog," he says and smiles. He holds the door and beckons for you to follow him.',
+    promptMsg:'A masked scientistt arrives to your cell, carrying a siringe. You wake up feeling groggy, there are stitches in your side. You have been implanted with an <span class="red">embeded medical monitor</span>. You can see your [vitals] and [stats]. Your training has paid off, "the time has come, all is prepared for the launch tomorrow." you hear them say. One of the scientists motions to you. "Good dog," he says and smiles. He holds the door and beckons for you to follow him.',
     options: '[follow] [hide]',
     meta: () => laika.inventory.push('embeded medical monitor')
   },
@@ -131,17 +135,62 @@ const options = [
   {
     cmd:'eat',
     promptMsg:'You eat the rich stew, you are full and happy, you sit with Vladamir and watch the snow coming down outside',
-    options: ''
+    options: '[open] your eyes'
   },
   {
     cmd:'sleep',
-    promptMsg:'You slumber by the fire. It has been so long since you have felt warmth.',
-    options: ''
+    promptMsg:'You curl up slumber by the fire. It has been so long since you have felt warmth like this. This feels like everything you have ever wanted... Somewhere in your mind you feel the temporality of the situation. A storm looms on the horizon, though for now life is good.',
+    options: '[open] your eyes'
   },
   {
     cmd:'pets',
-    promptMsg:'You get pets. You feel love and affection for the first time since getting lost as a puppy. You have a faint glimmer of your owner, a cheery little girl.',
-    options: ''
+    promptMsg:'You wander over to Vladamir. You feel love and affection for the first time since getting lost as a puppy. You have a faint glimmering memory of your owner, a cheery little girl. It feels like a different lifetime. You savor this moment.',
+    options: '[open] your eyes'
+  },
+  {
+    cmd: 'open',
+    promptMsg: 'You snap into consciousness, as you hear the rumble of the truck motor round the corner. Vladamir is getting ready, he pats you on the head. You both wander out into the chilly dawn. The drive is long and arduous. It is mid morning by the time the truck rumbles to a stop.',
+    options: '[look] around'
+  },
+  {
+    cmd: 'look',
+    promptMsg: 'You look out at the open expanse before you. there is a grouping of soldiers and scientists about. There is a platform windiing around a massive silver rocket. They slowly lead you closer ot the rocket launch pad.',
+    options: '[prepare]'
+  },
+  {
+    cmd: 'prepare',
+    promptMsg: 'They outfit you with a <span>Space Harness</span>, and they force you to eat some pills. You feel nervous as you begin to climb the platform with the scientists.',
+    options: '[climb]',
+    meta: (laika) => laika.inventory.push('space harness')
+  },
+  {
+    cmd: 'climb',
+    promptMsg: 'climb!',
+    options: 'Ready for [launch]',
+  },
+  {
+    cmd: 'launch',
+    promptMsg: 'damage!',
+    options: 'look [left] or [right]',
+    meta: (laika) => laika.health = laika.health - 12
+  },
+  {
+    cmd: 'left',
+    promptMsg: 'left!',
+    options: '[float]',
+    meta: (laika) => laika.health = laika.health - 12
+  },
+  {
+    cmd: 'right',
+    promptMsg: 'right!',
+    options: '[float]',
+    meta: (laika) => laika.health = laika.health - 12
+  },
+  {
+    cmd: 'float',
+    promptMsg: 'float!',
+    options: 'prepare',
+    meta: (laika) => laika.health = laika.health - 12
   },
   {
     cmd: 'help',
