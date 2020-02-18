@@ -33,6 +33,10 @@ function displayCmd(e) {
     if(e[0].cmd === 'enter' && laika.experience > 50){
       evaluate('experience');
     }
+
+    if(laika.health < 1){
+      
+    }
   }
 }
 
@@ -179,7 +183,7 @@ const options = [
   {
     cmd: 'climb',
     promptMsg: 'You and the scientists quietly ascend the platform to the capsule nested on top of the rocket. It is a somber and silent parade. You look a Vladamirs face for reassurance but his face is solomn and sullen. It feels like an eternity, but you finally arrive at the top of the platform.',
-    options: 'enter the [capsule]',
+    options:'[board] the capsule',
   },
   {
     cmd: 'capsule',
@@ -189,26 +193,18 @@ const options = [
   },
   {
     cmd: 'launch',
-    promptMsg: 'launch!',
-    options: 'look [left] or [right]',
-    meta: (laika) => laika.health = laika.health - 12
+    promptMsg: 'The rocket groans and creaks. You hear the countdown. Then you are consumed with the most deafening sound you have ever experienced. There is the glow of flame outside the casule. The force is overwhelming, you pass out. You fear this is the end. Fear consumes you, but all of a sudden things are still and there is nothing but silence.',
+    options: '[gaze] out the window'
   },
   {
-    cmd: 'left',
-    promptMsg: 'left!',
+    cmd: 'gaze',
+    promptMsg: 'you look out the window... you see the Earth as a looming blue orb to your left. You have never been so alone.',
     options: '[float]',
-    meta: (laika) => laika.health = laika.health - 12
-  },
-  {
-    cmd: 'right',
-    promptMsg: 'right!',
-    options: '[float]',
-    meta: (laika) => laika.health = laika.health - 12
   },
   {
     cmd: 'float',
-    promptMsg: 'float!',
-    options: 'prepare',
+    promptMsg: 'You think back on the few warm memories you have grown to cherish. Watching the world grow smaller in the distance.',
+    options: '[float]',
     meta: (laika) => laika.health = laika.health - 12
   },
   {
