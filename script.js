@@ -35,7 +35,7 @@ function displayCmd(e) {
     }
 
     if(laika.health < 1){
-
+      console.log('perish');
     }
   }
 }
@@ -186,7 +186,7 @@ const options = [
     options:'[board] the capsule',
   },
   {
-    cmd: 'capsule',
+    cmd: 'board',
     promptMsg: 'You enter the capsule, Vladamir straps you into the capsule, there is an ominous rumbling below you. You start to feel the fear mounting. One of the scientists winks at you, she reaches into her pocket and pulls out a <span class="red">treat</span>. You hold the treat in your mouth as you watch the light disappear as the heavy door closes and is bolted shut.',
     options: 'brace for [launch]',
     meta: (laika) => laika.inventory.push("treat")
@@ -194,7 +194,8 @@ const options = [
   {
     cmd: 'launch',
     promptMsg: 'The rocket groans and creaks. You hear the countdown. Then you are consumed with the most deafening sound you have ever experienced. There is the glow of flame outside the casule. The force is overwhelming, you pass out. You fear this is the end. Fear consumes you, but all of a sudden things are still and there is nothing but silence.',
-    options: '[gaze] out the window'
+    options: '[gaze] out the window',
+    meta: () => document.getElementById("defaultCanvas0").style.display = "block"
   },
   {
     cmd: 'gaze',
