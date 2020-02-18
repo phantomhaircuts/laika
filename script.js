@@ -173,17 +173,23 @@ const options = [
   {
     cmd: 'prepare',
     promptMsg: 'They outfit you with a <span>Space Harness</span>, and they force you to eat some pills. You feel nervous as you begin to climb the platform with the scientists.',
-    options: '[climb]',
+    options: '[climb] the platform',
     meta: (laika) => laika.inventory.push('space harness')
   },
   {
     cmd: 'climb',
-    promptMsg: 'climb!',
-    options: 'Ready for [launch]',
+    promptMsg: 'You and the scientists quietly ascend the platform to the capsule nested on top of the rocket. It is a somber and silent parade. You look a Vladamirs face for reassurance but his face is solomn and sullen. It feels like an eternity, but you finally arrive at the top of the platform.',
+    options: 'enter the [capsule]',
+  },
+  {
+    cmd: 'capsule',
+    promptMsg: 'You enter the capsule, Vladamir straps you into the capsule, there is an ominous rumbling below you. You start to feel the fear mounting. One of the scientists winks at you, she reaches into her pocket and pulls out a <span class="red">treat</span>. You hold the treat in your mouth as you watch the light disappear as the heavy door closes and is bolted shut.',
+    options: 'brace for [launch]',
+    meta: (laika) => laika.health = laika.health - 12
   },
   {
     cmd: 'launch',
-    promptMsg: 'damage!',
+    promptMsg: 'launch!',
     options: 'look [left] or [right]',
     meta: (laika) => laika.health = laika.health - 12
   },
