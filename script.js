@@ -185,7 +185,7 @@ const options = [
     cmd: 'capsule',
     promptMsg: 'You enter the capsule, Vladamir straps you into the capsule, there is an ominous rumbling below you. You start to feel the fear mounting. One of the scientists winks at you, she reaches into her pocket and pulls out a <span class="red">treat</span>. You hold the treat in your mouth as you watch the light disappear as the heavy door closes and is bolted shut.',
     options: 'brace for [launch]',
-    meta: (laika) => laika.health = laika.health - 12
+    meta: (laika) => laika.inventory.push("treat")
   },
   {
     cmd: 'launch',
