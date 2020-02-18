@@ -43,6 +43,19 @@ function testVital () {
   }
 }
 
+function starField (){
+   let scriptOne = document.createElement('script');
+   scriptOne.src = 'scripts/sketch.js';
+   var head = document.getElementsByTagName("head")[0];
+   head.appendChild(scriptOne);
+
+   let scriptTwo = document.createElement('script');
+   scriptTwo.src = 'scripts/star.js';
+    head.appendChild(scriptTwo);
+
+    console.log(head);
+}
+
 function meta (e) {
   e.meta(laika);
 }
