@@ -132,7 +132,7 @@ body {
 }
 
 #prompt {
-  width: 35vw;
+  width: 30vw;
   margin: 0 auto;
   text-align: left;
 }
@@ -155,4 +155,8 @@ body {
 
 *:focus {
     outline: none;
+}
+
+.red {
+  color: red;
 }
